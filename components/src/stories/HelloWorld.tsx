@@ -1,5 +1,5 @@
 import { h } from "preact";
-import register from "preact-custom-element";
+import { define } from "preactement";
 
 
 export type HelloWorldProps = {
@@ -11,4 +11,4 @@ const HelloWorld = ({name, title}: HelloWorldProps) => {
     return <div>Name: {name}, Title: {title}</div>;
 }
 
-register(HelloWorld, "app-hello", ['name', 'title'], {shadow: false});
+define("app-hello", () => HelloWorld, { attributes: ['name', 'title'] })

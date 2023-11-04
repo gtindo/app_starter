@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:css": "tailwindcss -i src/styles/base.css -o static/styles/base.css --watch",
-    "build:css": "tailwindcss -i src/styles/base.css -o static/styles/base.css",
-    "build:web-components": "esbuild src/**/*.tsx --bundle --minify --target=chrome58,firefox57,safari11,edge16 --outdir=dist",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "watch:css": "tailwindcss -i src/styles/base.css -o ../static/css/base.css --watch",
+    "build:css": "tailwindcss -i src/styles/base.css -o ../static/css/base.css",
+    "build:web-components": "esbuild src/**/*.tsx --bundle --minify --target=chrome58,firefox57,safari11,edge18 --outdir=../static/js/components",
+    "dev": "storybook dev -p 6006",
+    "build-playground": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "preact": "^10.18.1",
-    "preact-custom-element": "^4.3.0"
+    "preactement": "^1.8.5"
   }
 }

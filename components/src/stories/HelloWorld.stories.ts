@@ -1,8 +1,8 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import { HelloWorldProps } from '../HelloWorld';
-import "../HelloWorld";
+import { HelloWorldProps } from './HelloWorld';
+import "./HelloWorld";
 
 const meta = {
   title: 'Components/HelloWorld',
