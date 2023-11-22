@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:css": "tailwindcss -i src/styles/base.css -o ../static/css/base.css --watch",
-    "build:css": "tailwindcss -i src/styles/base.css -o ../static/css/base.css",
-    "build:web-components": "esbuild src/**/*.tsx --bundle --minify --target=chrome58,firefox57,safari11,edge18 --outdir=../static/js/components",
+    "build": "npm run build:css && npm run build:components && npm run build:libs",
+    "watch:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --watch",
+    "build:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css",
+    "build:components": "esbuild src/**/*.tsx --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components",
+    "build:libs": "esbuild src/libs/*.ts --bundle --minify --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/libs",
     "dev": "storybook dev -p 6006",
-    "build-playground": "storybook build"
+    "build:doc": "storybook build"
   },
   "keywords": [],
   "author": "",

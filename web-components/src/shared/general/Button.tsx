@@ -13,4 +13,5 @@ function Button({children}: ButtonProps) {
     </button>
   )
 }
+
 define('app-button', () => Button);

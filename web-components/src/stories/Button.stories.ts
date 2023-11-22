@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import "../generic/Button";
+import "../shared/general/Button";
 
 const meta = {
   title: 'Components/generic/Button',
