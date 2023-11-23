@@ -8,7 +8,7 @@
     "watch:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --watch",
     "build:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css",
     "build:components": "esbuild src/**/*.tsx --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components",
-    "build:libs": "esbuild src/libs/*.ts --bundle --minify --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/libs",
+    "build:libs": "esbuild src/libs/*.ts --bundle --target=es6 --outdir=dist/js/libs",
     "dev": "storybook dev -p 6006",
     "build:doc": "storybook build"
   },
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "preact": "^10.18.1",
+    "preact-custom-element": "^4.3.0",
     "preactement": "^1.8.5"
   }
 }

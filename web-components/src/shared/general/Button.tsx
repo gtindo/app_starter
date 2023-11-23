@@ -1,5 +1,6 @@
 import { h, JSX } from "preact";
-import { define } from 'preactement';
+//import { define } from 'preactement';
+import register from "preact-custom-element";
 
 
 export type ButtonProps = {
@@ -14,4 +15,6 @@ function Button({children}: ButtonProps) {
   )
 }
 
-define('app-button', () => Button);
+//define('app-button', () => Button);
+
+register(Button, 'app-button', [], {shadow: true});
