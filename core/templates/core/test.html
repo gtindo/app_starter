@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Test page {% endblock %}
+
+{% block scripts %} 
+<script type="module" src="{% static 'js/components/shared/general/Button.js' %}"} defer></script> 
+{% endblock %}
+
+{% block content %} 
+<main>
+  <app-button>My Awesome button</app-button> 
+</main>
+{% endblock %}

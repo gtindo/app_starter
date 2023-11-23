@@ -6,3 +6,5 @@ static
 
 dist
 storybook-static
+
+__pycache__
