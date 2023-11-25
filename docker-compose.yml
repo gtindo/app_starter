@@ -33,6 +33,11 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       REDIS_HOST: "redis"
       REDIS_PORT: "6379"
+      SMTP_HOST: "${SMTP_HOST}"
+      SMTP_PORT: "${SMTP_PORT}"
+      SMTP_USERNAME: "${SMTP_USERNAME}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD}"
+      DEFAULT_FROM_EMAIL: "${DEFAULT_FROM_EMAIL}"
     ports: 
       - "${APP_PROD_PORT}:8000"
 
@@ -60,6 +65,11 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       REDIS_HOST: "redis"
       REDIS_PORT: "6379"
+      SMTP_HOST: "${SMTP_HOST}"
+      SMTP_PORT: "${SMTP_PORT}"
+      SMTP_USERNAME: "${SMTP_USERNAME}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD}"
+      DEFAULT_FROM_EMAIL: "${DEFAULT_FROM_EMAIL}"
     entrypoint: "/app/start_dev.sh"
 
       
