@@ -1,17 +1,69 @@
 version: "3.8"
-services:
 
-  db:
+services:
+  database:
     image: "postgres:15-alpine"
-    restart: always
     environment:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       POSTGRES_USER: "${POSTGRES_USER}"
       POSTGRES_DB: "${POSTGRES_DB}"
     ports:
-      - "${POSTGRES_PORT}:5432"
+      - "${POSTGRES_DEV_PORT}:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
 
+  redis:
+    image: "redis:7.2.3"
+    ports:
+      - "${REDIS_PORT}:6379"
+
+
+  # Uses production docker images and configuration
+  app_production:
+    build: .
+    depends_on:
+      - database
+      - redis
+    environment:
+      DEBUG: false
+      POSTGRES_HOST: "database"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_PORT: "5432"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+    ports: 
+      - "${APP_PROD_PORT}:8000"
+
+  # Uses local files on a volume for development convenience
+  app_dev:
+    image: python:3.10
+    depends_on:
+      - database
+      - redis
+    ports:
+     - "8000:8000"
+    working_dir: /app
+    volumes:
+     - type: bind
+       source: ./
+       target: /app 
+    environment:
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
+      DEBUG: true
+      POSTGRES_HOST: "database"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_DB: "${POSTGRES_DB}"
+      POSTGRES_PORT: "5432"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      REDIS_HOST: "redis"
+      REDIS_PORT: "6379"
+    entrypoint: "/app/start_dev.sh"
+
+      
+
 volumes:
-    db-data:
+    db-data: {}
+    app_dev: {}

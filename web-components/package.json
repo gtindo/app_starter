@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:css && npm run build:components && npm run build:libs",
+    "build": "npm run build:css && npm run build:components",
     "watch:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --watch",
-    "build:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css",
+    "build:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --minify",
     "build:components": "esbuild src/**/*.tsx --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components",
     "dev": "storybook dev -p 6006",
     "build:doc": "storybook build"
