@@ -5,5 +5,5 @@ app_name = "core"
 
 urlpatterns = [
     path("", views.test_page),
-    path("send-mail/", views.test_email)
+    path("test-task/", views.test_celery_task)
 ]

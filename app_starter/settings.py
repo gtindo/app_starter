@@ -169,3 +169,7 @@ EMAIL_PORT = os.getenv("SMTP_PORT")
 EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
+
+# Celery config
+CELERY_BROKER_URL = "redis://{}:{}/0".format(os.getenv("REDIS_HOST"), os.getenv("REDIS_PORT"))
