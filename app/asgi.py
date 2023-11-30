@@ -1,5 +1,5 @@
 """
-ASGI config for app_starter project.
+ASGI config for app project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -16,7 +16,7 @@ from django.core.asgi import get_asgi_application
 
 from .routing import websocket_urlpatterns
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_starter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
 
 django_asgi_app = get_asgi_application()
 
