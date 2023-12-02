@@ -1,4 +1,5 @@
-node_modules
+web-components/node_modules
+web-components/storybook-static
 venv
 .idea
 .vscode

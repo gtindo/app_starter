@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     # project apps
     'core',
-    'chat'
+    'chat',
+    'accounts'
 ]
 
 ASGI_APPLICATION = 'app.asgi.application'
