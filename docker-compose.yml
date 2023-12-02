@@ -27,6 +27,7 @@ services:
       - redis
     environment: &common_app_env
       DEBUG: false
+      SECRET_KEY: "${SECRET_KEY}"
       POSTGRES_HOST: "database"
       POSTGRES_USER: "${POSTGRES_USER}"
       POSTGRES_DB: "${POSTGRES_DB}"
@@ -49,7 +50,7 @@ services:
       - database
       - redis
     ports:
-     - "8000:8000"
+     - "${APP_DEV_PORT}:8000"
     working_dir: /app
     volumes:
      - type: bind
