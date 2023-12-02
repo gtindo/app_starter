@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<strong>
+{{ user.email }} is authenticated on the app
+</strong> <br />
+
+<form action="{% url "accounts:logout" %}" method="post">
+  {% csrf_token %}
+  <button>Logout</button>
+</form>
+
+
+{% endblock %}
