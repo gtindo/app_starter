@@ -6,10 +6,14 @@
 {{ user.email }} is authenticated on the app
 </strong> <br />
 
+<a href="{% url 'accounts:password_change' %}">Update your password</a>
+
 <form action="{% url "accounts:logout" %}" method="post">
   {% csrf_token %}
   <button>Logout</button>
 </form>
+
+
 
 
 {% endblock %}
