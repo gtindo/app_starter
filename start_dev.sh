@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source ./venv/bin/activate
+cd ./web-components
+npm run build
 
-pip install -r requirements.txt
+cd ../
 
-exec \
-  python manage.py runserver 0.0.0.0:8000 \
-  & celery -A app worker --loglevel=INFO
+python manage.py runserver 0.0.0.0:8000 \
+  & celery -A app worker --loglevel=INFO \

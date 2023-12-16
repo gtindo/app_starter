@@ -30,7 +30,7 @@ module.exports = {
         900: "#7c2d12",
         950: "#431407"
       },
-      error: {
+      danger: {
         50: "#fef2f2",
         100: "#fee2e2",
         200: "#fecaca",
@@ -81,7 +81,8 @@ module.exports = {
         800: "#1f2937",
         900: "#111827",
         950: "#030712"
-      }
+      },
+      white: "#f9fafb"
     }
   },
   plugins: [],
