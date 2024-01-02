@@ -5,16 +5,18 @@
   <title>{% block title %} App Starter {% endblock %}</title>
 
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-  <script type="importmap">
-    {
-      "imports": {
-        "preact": "https://esm.sh/preact@10.19.2",
-        "preact/": "https://esm.sh/preact@10.19.2/",
-        "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact",
-        "preactement": "https://esm.sh/preactement@1.8.5"
-      }
-    }
-  </script>
+
+{#  <script type="importmap">#}
+{#    {#}
+{#      "imports": {#}
+{#        "preact": "https://esm.sh/preact@10.19.2",#}
+{#        "preact/": "https://esm.sh/preact@10.19.2/",#}
+{#        "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact",#}
+{#        "preactement": "https://esm.sh/preactement@1.8.5",#}
+{#        "js-cookie": "https://esm.sh/js-cookie@3.0.5"#}
+{#      }#}
+{#    }#}
+{#  </script>#}
 
   {% block scripts %}
   {% endblock %}

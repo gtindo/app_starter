@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script type="module" src="{% static "js/components/app/accounts/LoginForm.js" %}"></script>
+{% endblock %}
 
 {% block content %}
 
@@ -6,33 +11,18 @@
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+<div style="display: flex;justify-content: center; align-items: center; height: 95vh; width: 100%">
+    <div style="width: 25%">
+    <accounts-login-form
+        action="{% url 'accounts:login' %}"
+        forgot-password-url="{% url 'accounts:password_reset' %}">
 
-<form method="post" action="{% url 'accounts:login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-
-{# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'accounts:password_reset' %}">Lost password?</a></p>
+    <span slot="username-label">{{ form.username.id_for_label }}</span>
+    <span slot="password-label">{{ form.password.id_for_label }}</span>
+    <span slot="forgot-password-text">Lost password?</span>
+    <span slot="login-btn-label">Login</span>
+</accounts-login-form>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 type SendFormParams = {
   action: string;
   enctype?: string;
@@ -12,6 +14,10 @@ type SendFormParams = {
  * set datas on this form then call the method submit to send it the server 
  */
 export function sendForm({action, data, enctype, method}: SendFormParams) {
+
+  // Get Django csrf token from cookies
+  const csrftoken = Cookies.get("csrftoken");
+  const tokenFieldName = "csrfmiddlewaretoken";
   
   const form = document.createElement("form");
   form.action = action;
@@ -23,6 +29,7 @@ export function sendForm({action, data, enctype, method}: SendFormParams) {
       data.forEach((value, key) => {
           e.formData.append(key, value);
       });
+      e.formData.append(tokenFieldName, `${csrftoken}`);
   }
 
   // The form needs to be attached to dom to work
