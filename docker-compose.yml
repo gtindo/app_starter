@@ -52,6 +52,7 @@ services:
       - redis
     ports:
      - "${APP_DEV_PORT}:8000"
+     - "6006:6006"
     working_dir: /app
     volumes:
      - type: bind
@@ -117,8 +118,6 @@ services:
       - 9100
     ports:
       - "9100:9100"
-
-
 
 volumes:
     db-data: {}

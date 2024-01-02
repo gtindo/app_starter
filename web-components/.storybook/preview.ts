@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/web-components";
 
-import '../dist/styles/base.css'
+import '../dist/css/base.css'
 
 const preview: Preview = {
   parameters: {
