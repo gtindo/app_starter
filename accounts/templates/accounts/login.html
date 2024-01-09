@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block scripts %}
     <script type="module" src="{% static "js/components/app/accounts/LoginForm.js" %}"></script>
@@ -8,20 +9,20 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p>{% translate "Your username and password didn't match. Please try again." %}</p>
 {% endif %}
 
 <div style="display: flex;justify-content: center; align-items: center; height: 95vh; width: 100%">
     <div style="width: 25%">
-    <accounts-login-form
-        action="{% url 'accounts:login' %}"
-        forgot-password-url="{% url 'accounts:password_reset' %}">
+        <accounts-login-form
+            action="{% url 'accounts:login' %}"
+            forgot-password-url="{% url 'accounts:password_reset' %}">
 
-    <span slot="username-label">{{ form.username.id_for_label }}</span>
-    <span slot="password-label">{{ form.password.id_for_label }}</span>
-    <span slot="forgot-password-text">Lost password?</span>
-    <span slot="login-btn-label">Login</span>
-</accounts-login-form>
+            <span slot="username-label">{{ form.username.id_for_label }}</span>
+            <span slot="password-label">{{ form.password.id_for_label }}</span>
+            <span slot="forgot-password-text">{% translate "Lost password?" %}</span>
+            <span slot="login-btn-label">{% translate "Login" %}</span>
+        </accounts-login-form>
     </div>
 </div>
 
