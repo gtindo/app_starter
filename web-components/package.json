@@ -21,6 +21,7 @@
     "@storybook/web-components": "^7.5.1",
     "@storybook/web-components-vite": "^7.5.1",
     "@types/js-cookie": "^3.0.6",
+    "@types/preact-custom-element": "^4.0.4",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "esbuild": "^0.19.5",
     "lit": "^3.0.0",
@@ -34,6 +35,7 @@
   "dependencies": {
     "js-cookie": "^3.0.5",
     "preact": "^10.18.1",
+    "preact-custom-element": "^4.3.0",
     "preactement": "^1.8.5"
   }
 }

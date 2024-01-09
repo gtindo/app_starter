@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-import { define } from "preactement";
+import register from "preact-custom-element";
 import {TargetedEvent} from "preact/compat";
 import {sendForm} from "../../helpers/send-form";
 
@@ -30,8 +30,9 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
   }
 
   return (
-
       <div>
+        <link rel="stylesheet" href="/static/css/base.css" />
+
         <div class="mb-6">
           <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             <slot name="username-label">Username</slot>
@@ -68,4 +69,4 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
   )
 }
 
-define('accounts-login-form', () => LoginForm, { attributes: ["action", "forgot-password-url"] });
+register(LoginForm, 'accounts-login-form',["action", "forgot-password-url"], {shadow: true});
