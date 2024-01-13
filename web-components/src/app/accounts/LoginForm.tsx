@@ -30,10 +30,10 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
   }
 
   return (
-      <div>
+      <div className="">
         <link rel="stylesheet" href="/static/css/base.css" />
 
-        <div class="mb-6">
+        <div className="mb-6">
           <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             <slot name="username-label">Username</slot>
           </label>
@@ -43,7 +43,7 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
                  onChange={handleUsernameChange}
                  required/>
         </div>
-        <div class="mb-6">
+        <div className="mb-6">
           <label htmlFor="password"
                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             <slot name="password-label">Password</slot>

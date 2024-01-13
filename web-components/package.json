@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build:css && npm run build:components",
     "watch:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --watch",
-    "build:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --minify",
+    "build:css": "tailwindcss -c tailwind.config.js -i src/styles/base.css -o dist/css/base.css --minify",
     "build:components": "esbuild src/**/*.tsx --bundle --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components",
     "dev": "storybook dev -p 6006",
     "build:doc": "storybook build"
