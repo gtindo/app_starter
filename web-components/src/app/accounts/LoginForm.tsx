@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import register from "preact-custom-element";
 import {TargetedEvent} from "preact/compat";
-import {sendForm} from "../../helpers/send-form";
+import {sendForm} from "../../helpers/send-form.js";
 
 type LoginFormProps = {
   action: string,
