@@ -30,7 +30,7 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
   }
 
   return (
-      <div className="">
+      <div>
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <div className="mb-6">

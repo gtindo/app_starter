@@ -7,7 +7,9 @@
     "build": "npm run build:css && npm run build:components",
     "watch:css": "tailwindcss -i src/styles/base.css -o dist/css/base.css --watch",
     "build:css": "tailwindcss -c tailwind.config.js -i src/styles/base.css -o dist/css/base.css --minify",
-    "build:components": "esbuild src/**/*.tsx --bundle --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components",
+    "build:components": "npm run build:helpers && npm run build:components:accounts",
+    "build:helpers": "esbuild src/helpers/*.ts --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components/helpers",
+    "build:components:accounts": "esbuild src/app/accounts/*.tsx --target=chrome58,firefox57,safari11,edge18 --outdir=dist/js/components/app/accounts",
     "dev": "storybook dev -p 6006",
     "build:doc": "storybook build"
   },

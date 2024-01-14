@@ -83,7 +83,7 @@ module.exports = {
         900: "#111827",
         950: "#030712"
       },
-      white: "#f9fafb"
+      white: "#ffffff"
     }
   },
   plugins: [],
