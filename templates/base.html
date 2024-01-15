@@ -13,13 +13,18 @@
         "preact/": "https://esm.sh/preact@10.19.2/",
         "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact",
         "preact-custom-element": "https://esm.sh/preact-custom-element@4.3.0",
-        "js-cookie": "https://esm.sh/js-cookie@3.0.5"
+        "js-cookie": "https://esm.sh/js-cookie@3.0.5",
+        "@hotwired/turbo": "https://esm.sh/@hotwired/turbo@7.3.0"
       }
     }
   </script>
 
   {% block scripts %}
   {% endblock %}
+
+  <script type="module" defer>
+      import * as Turbo from "@hotwired/turbo";
+  </script>
 </head>  
 <body>
   {% block content %} {% endblock %}
