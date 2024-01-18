@@ -175,3 +175,25 @@ DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
 # Celery config
 CELERY_BROKER_URL = "redis://{}:{}/0".format(os.getenv("REDIS_HOST"), os.getenv("REDIS_PORT"))
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler"
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "INFO"
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False
+        },
+    },
+}

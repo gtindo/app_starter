@@ -1,16 +1,14 @@
 FROM node:18 as web_components_builder
 
 # Workdir for frontend build
-WORKDIR /web-components
+WORKDIR /app
 
-# Copy package json
-COPY web-components/package*.json ./
+# Copy files
+COPY . .
 
 # Install dependecies
+WORKDIR /app/web-components
 RUN npm install
-
-# Copy components files
-COPY web-components ./
 
 # Build web components and css files
 RUN npm run build
@@ -40,7 +38,7 @@ COPY --from=django_app_builder /app/venv /app/venv
 COPY . .
 
 # Copy builded components
-COPY --from=web_components_builder /web-components/dist /app/web-components/dist
+COPY --from=web_components_builder /app/web-components/dist /app/web-components/dist
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
