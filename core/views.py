@@ -5,12 +5,17 @@ from django.http import HttpResponse
 
 from .tasks import add
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 async def test_page(request):
-  return render(request=request, template_name="core/test.html")
+    logger.info("Rendering the test page")
+    return render(request=request, template_name="core/test.html")
 
 
 async def test_celery_task(request):
-  res = add.delay(4, 4)
+    res = add.delay(4, 4)
   
-  return HttpResponse("ok")
+    return HttpResponse("ok")
