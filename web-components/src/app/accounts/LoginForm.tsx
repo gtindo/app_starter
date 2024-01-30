@@ -11,15 +11,16 @@ type LoginFormProps = {
 
 export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUsernameChange = (e: TargetedEvent<HTMLInputElement>) => setUsername(e.currentTarget.value);
+  const handleEmailChange = (e: TargetedEvent<HTMLInputElement>) => setEmail(e.currentTarget.value);
   const handlePasswordChange = (e: TargetedEvent<HTMLInputElement>) => setPassword(e.currentTarget.value);
 
   const handleFormSubmit = () => {
     const data = new FormData();
-    data.append("username", username);
+    // Email is used as username
+    data.append("username", email);
     data.append("password", password);
 
     sendForm({
@@ -34,13 +35,13 @@ export function LoginForm({action, forgotPasswordUrl}: LoginFormProps) {
         <link rel="stylesheet" href="/static/css/base.css" />
 
         <div className="mb-6">
-          <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            <slot name="username-label">Username</slot>
+          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <slot name="email-label">Email</slot>
           </label>
-          <input type="text" id="username"
+          <input type="text" id="email"
                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                 placeholder="john_doe"
-                 onChange={handleUsernameChange}
+                 placeholder="john.doe@site.com"
+                 onChange={handleEmailChange}
                  required/>
         </div>
         <div className="mb-6">
