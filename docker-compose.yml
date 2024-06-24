@@ -1,6 +1,5 @@
 version: "3.8"
 
-
 services:
   database:
     image: "postgres:15-alpine"
@@ -17,7 +16,6 @@ services:
     image: "redis:7.2.3"
     ports:
       - "${REDIS_PORT}:6379"
-
 
   # Uses production docker images and configuration
   app_production:
@@ -44,81 +42,6 @@ services:
       OTEL_PYTHON_DJANGO_INSTRUMENT: "${OTEL_PYTHON_DJANGO_INSTRUMENT}"
     ports: 
       - "${APP_PROD_PORT}:8000"
-
-  # Uses local files on a volume for development convenience
-  app_dev:
-    build:
-      dockerfile: ./dev.Dockerfile
-    depends_on:
-      - database
-      - redis
-    ports:
-     - "${APP_DEV_PORT}:8000"
-    working_dir: /app
-    volumes:
-     - type: bind
-       source: ./
-       target: /app 
-    environment:
-      PYTHONDONTWRITEBYTECODE: 1
-      PYTHONUNBUFFERED: 1
-      <<: *common_app_env
-      DEBUG: true
-    entrypoint: "/app/start_dev.sh"
-
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - type: bind
-        source: ./infra/prometheus
-        target: /etc/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-    depends_on:
-      - cadvisor
-
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
-    ports:
-      - "8080:8080"
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev:/dev:ro
-      - /etc/machine-id:/etc/machine-id:ro
-
-  grafana:
-    image: grafana/grafana-enterprise
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_SECURITY_ADMIN_USER=admin
-
-  node-exporter:
-    image: prom/node-exporter:latest
-    container_name: node-exporter
-    volumes:
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /:/rootfs:ro
-    command:
-      - '--path.procfs=/host/proc'
-      - '--path.rootfs=/rootfs'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
-    expose:
-      - 9100
-    ports:
-      - "9100:9100"
 
 volumes:
     db-data: {}
