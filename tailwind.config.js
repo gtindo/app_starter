@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
-  content: ["./src/**/*.tsx", "../accounts/templates/accounts/*.html"],
+  content: [
+      "./**/*.html",
+      "./components/../.js"
+  ],
   theme: {
     extend: {},
     colors: {
@@ -86,5 +88,5 @@ module.exports = {
       white: "#ffffff"
     }
   },
-  plugins: [],
-};
+  plugins: [require('flowbite/plugin')],
+}

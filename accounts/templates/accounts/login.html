@@ -14,15 +14,10 @@
 
 <div class="flex flex-row justify-center items-center w-screen h-screen" >
     <div class="max-w-sm w-11/12 sm:w-3/4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <accounts-login-form
-            action="{% url 'accounts:login' %}"
-            forgot-password-url="{% url 'accounts:password_reset' %}">
-
-            <span slot="email-label">{% translate "Email" %}</span>
-            <span slot="password-label">{% translate "Password" %}</span>
-            <span slot="forgot-password-text">{% translate "Lost password?" %}</span>
-            <span slot="login-btn-label">{% translate "Login" %}</span>
-        </accounts-login-form>
+        <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
     </div>
 </div>
 

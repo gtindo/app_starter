@@ -10,21 +10,14 @@ Work In Progress
 The purpose of this boilerplate is to set up a fullstack django app. 
 It follows the HTML over the wire approach. Html is rendered on the server. 
 
-For forms, or complex ui, it uses web components. These components are created
-with `preact` (a lightweight alternative to `react`) and `preact-custom-elements` that converts
-`preact` components to `web-components`.
-
-It enables the backend to render a small html file for these components, and the rendering is made on client side.
-
 
 ## Tools
 Here are the list of frontend/backend tools used in the boilerplate:
 
 ### frontend:
-* preact
-* preact-custom-element
 * Hotwired Turbo
 * Tailwind CSS
+* Vanilla web components
 
 ### Backend Framework
 * Django

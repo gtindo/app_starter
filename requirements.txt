@@ -13,3 +13,4 @@ redis==5.0.1
 requests==2.31.0
 whitenoise==6.6.0
 python-dotenv==1.0.1
+Twisted[tls,http2]==24.3.0
