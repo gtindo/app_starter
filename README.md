@@ -28,7 +28,6 @@ Here are the list of frontend/backend tools used in the boilerplate:
 
 ### Backend Framework
 * Django
-* Django channels
 
 ### Database
 * Postgresql
