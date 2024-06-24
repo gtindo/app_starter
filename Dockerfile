@@ -1,19 +1,3 @@
-FROM node:18 as web_components_builder
-
-# Workdir for frontend build
-WORKDIR /app
-
-# Copy files
-COPY . .
-
-# Install dependecies
-WORKDIR /app/web-components
-RUN npm install
-
-# Build web components and css files
-RUN npm run build
-
-
 # Install dependencies for django app
 
 FROM python:3.10 as django_app_builder
@@ -36,9 +20,6 @@ COPY --from=django_app_builder /app/venv /app/venv
 
 # Copy django app files
 COPY . .
-
-# Copy builded components
-COPY --from=web_components_builder /app/web-components/dist /app/web-components/dist
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
