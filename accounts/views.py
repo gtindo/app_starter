@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from accounts import forms
 
 """
 Views for authenticating users
@@ -17,6 +18,7 @@ def profile_view(request):
 
 
 class LoginView(auth_views.LoginView):
+    form_class = forms.AuthenticationForm
     template_name = "accounts/login.html"
     next_page = "/accounts/profile"
 

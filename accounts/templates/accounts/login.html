@@ -2,10 +2,6 @@
 {% load static %}
 {% load i18n %}
 
-{% block scripts %}
-    <script type="module" src="{% static "js/components/app/accounts/LoginForm.js" %}"></script>
-{% endblock %}
-
 {% block content %}
 
 {% if form.errors %}
@@ -16,7 +12,13 @@
     <div class="max-w-sm w-11/12 sm:w-3/4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <form action="{% url 'accounts:login' %}" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="mb-4">
+                {{ form.username.as_field_group }}
+            </div>
+            <div class="mb-6">
+                {{ form.password.as_field_group }}
+            </div>
+            <button is="btn-primary" type="submit">{% trans 'Login' %}</button>
         </form>
     </div>
 </div>

@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'django.forms',
 
     # project apps
     'core',
-    'accounts'
+    'accounts',
+    'utils'
 ]
 
 ASGI_APPLICATION = 'app.asgi.application'
@@ -81,6 +83,8 @@ TEMPLATES = [
         },
     },
 ]
+
+FORM_RENDERER = "utils.forms.renderers.CustomFormRenderer"
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
@@ -140,7 +144,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    BASE_DIR / "web-components/dist"
+    BASE_DIR / "components"
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
