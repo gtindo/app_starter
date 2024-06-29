@@ -4,7 +4,7 @@
   "description": "Django App Boilerplate ===",
   "main": "index.js",
   "scripts": {
-    "watch:css": "tailwindcss -i styles/base.css -o static/css/base.css --watch",
+    "watch:css": "tailwindcss -i styles/base.css -o static/css/base.css --minify --watch",
     "build:css": "tailwindcss -i styles/base.css -o static/css/base.css --minify"
   },
   "keywords": [],
