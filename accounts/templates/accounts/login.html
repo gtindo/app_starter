@@ -19,7 +19,13 @@
             <div class="mb-6">
                 {{ form.password.as_field_group }}
             </div>
-            <button is="btn-primary" type="submit">{% trans 'Login' %}</button>
+            <button is="wc-button" type="submit">{% trans 'Login' %}</button>
+
+            {% if password_reset_url %}
+                <div class="">
+                    <a href="{{ password_reset_url }}">{% translate 'Forgotten your password or username?' %}</a>
+                </div>
+            {% endif %}
         </form>
     </div>
 </div>
