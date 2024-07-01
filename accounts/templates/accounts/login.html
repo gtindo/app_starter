@@ -7,11 +7,15 @@
 
 
 <div class="flex flex-row justify-center items-center w-screen h-screen" >
-    <div class="max-w-sm w-11/12 sm:w-3/4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="md:w-[500px] sm:w-3/4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="mb-6 text-center">
+            <h1 class="my-2 font-medium text-2xl">{% trans "Sign In" %}</h1>
+            <span class="text-gray-500">{% trans "Enter your email and password to access your account." %}</span>
+        </div>
         <form action="{% url 'accounts:login' %}" method="post">
             {% csrf_token %}
             {% if form.errors %}
-                <p class="mb-4 text-danger-600 text-l">{% translate "Your username and password didn't match. Please try again." %}</p>
+                <p class="mb-4 text-danger-600 text-l">{% translate "Your email and password didn't match. Please try again." %}</p>
             {% endif %}
             <div class="mb-4">
                 {{ form.username.as_field_group }}
@@ -19,14 +23,26 @@
             <div class="mb-6">
                 {{ form.password.as_field_group }}
             </div>
-            <button is="wc-button" type="submit">{% trans 'Login' %}</button>
 
-            {% if password_reset_url %}
-                <div class="">
-                    <a href="{{ password_reset_url }}">{% translate 'Forgotten your password or username?' %}</a>
-                </div>
-            {% endif %}
+            <div class="mb-6">
+                <a class="text-primary-600 hover:text-primary-500" href="{% url 'accounts:password_reset' %}">{% translate 'Forgotten your password ?' %}</a>
+            </div>
+
+            <div class="mb-4 w-full">
+                <button is="wc-button" type="submit">{% trans 'Login' %}</button>
+            </div>
         </form>
+
+        <div class="w-full">
+            <button is="wc-button" variant="outlined">
+                <div class="flex flex-row items-center justify-center">
+                    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">
+                        <path fill-rule="evenodd" d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z" clip-rule="evenodd"/>
+                    </svg>
+                    {% trans 'Sign in with Google' %}
+                </div>
+            </button>
+        </div>
     </div>
 </div>
 

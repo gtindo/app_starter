@@ -4,7 +4,7 @@ class WcPrimaryButton extends HTMLButtonElement {
 
     constructor(){
         super();
-        this.baseClassName = "focus:ring-4 font-medium focus:outline-none"
+        this.baseClassName = "focus:ring-4 font-medium focus:outline-none w-full"
         this.baseSize = "md";
         this.baseColor = "primary";
         this.baseVariant = "contained";

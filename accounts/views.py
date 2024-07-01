@@ -38,6 +38,8 @@ class PasswordChangeDoneView(auth_views.PasswordChangeDoneView):
 
 
 class PasswordResetView(auth_views.PasswordResetView):
+    form_class = forms.PasswordResetForm
+
     # displays a form with email field, users will enter their email to reset password
     template_name = "accounts/password_reset_form.html"
 
@@ -56,6 +58,7 @@ class PasswordResetDoneView(auth_views.PasswordResetDoneView):
 
 
 class PasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    form_class = forms.PasswordResetConfirmForm
     # Displays form for user to enter new password for reset
     template_name = "accounts/password_reset_confirm.html"
     success_url = "/accounts/reset/done"

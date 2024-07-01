@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-14 06:16+0000\n"
+"POT-Creation-Date: 2024-07-01 18:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,30 +18,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: accounts/templates/accounts/login.html:12
-msgid "Your username and password didn't match. Please try again."
+#: accounts/admin.py:14
+msgid "Personal info"
 msgstr ""
 
-#: accounts/templates/accounts/login.html:21
-msgid "Username"
-msgstr "Nom d'utilisateur"
+#: accounts/admin.py:15
+msgid "Permissions"
+msgstr ""
 
-#: accounts/templates/accounts/login.html:22
+#: accounts/admin.py:17
+msgid "Important dates"
+msgstr ""
+
+#: accounts/forms.py:13
 msgid "Password"
 msgstr "Mot de passe"
 
-#: accounts/templates/accounts/login.html:23
-msgid "Lost password?"
-msgstr "Mot de passe oublié?"
+#: accounts/models.py:43
+#, fuzzy
+#| msgid "Email address"
+msgid "email address"
+msgstr "Courriel"
 
-#: accounts/templates/accounts/login.html:24
+#: accounts/templates/accounts/login.html:12
+msgid "Sign In"
+msgstr "Connexion"
+
+#: accounts/templates/accounts/login.html:13
+msgid "Enter your email and password to access your account."
+msgstr "Entrez votre email et votre mot de passe pour accéder à votre compte."
+
+#: accounts/templates/accounts/login.html:18
+msgid "Your email and password didn't match. Please try again."
+msgstr "Votre email et votre mot de passe ne correspondent pas. Veuillez réessayer."
+
+#: accounts/templates/accounts/login.html:28
+msgid "Forgotten your password ?"
+msgstr "Mot de passe oublié ?"
+
+#: accounts/templates/accounts/login.html:32
 msgid "Login"
 msgstr "Connexion"
 
-#: accounts/templates/accounts/password_reset_form.html:17
-msgid "Email"
-msgstr "Courriel"
+#: accounts/templates/accounts/login.html:42
+msgid "Sign in with Google"
+msgstr "Connexion avec Google"
 
-#: accounts/templates/accounts/password_reset_form.html:18
-msgid "Reset"
-msgstr "Réinitialiser"
+#~ msgid "Username"
+#~ msgstr "Nom d'utilisateur"
+
+#~ msgid "Email"
+#~ msgstr "Courriel"
+
+#~ msgid "Reset"
+#~ msgstr "Réinitialiser"

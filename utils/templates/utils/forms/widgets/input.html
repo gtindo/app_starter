@@ -7,14 +7,6 @@
 
         {% for name, value in widget.attrs.items %}{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}
 
-        class="{% if variant == "error" %}
-         bg-danger-50 border border-danger-500 text-danger-900 placeholder-danger-700
-         text-sm rounded-lg focus:ring-danger-500 dark:bg-gray-700 focus:border-danger-500
-         inline-block w-full p-2.5 dark:text-danger-500 dark:placeholder-danger-500 dark:border-danger-500
-        {% else %}
-         bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
-         focus:ring-primary-500 focus:border-primary-500 inline-block w-full p-2.5 dark:bg-gray-700
-         dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-         dark:focus:ring-primary-500 dark:focus:border-primary-500
-        {% endif %}"
->
+        is="wc-input"
+        {% if variant == "error" %} variant="error" {% endif %}
+/>
