@@ -37,3 +37,27 @@ class PasswordResetConfirmForm(auth_forms.SetPasswordForm):
         strip=False,
         widget=widgets.PasswordInput(attrs={"autocomplete": "new-password"}),
     )
+
+
+class PasswordChangeForm(auth_forms.PasswordChangeForm):
+    new_password1 = forms.CharField(
+        label=_("New Password"),
+        widget=widgets.PasswordInput(attrs={"autocomplete": "new-password"}),
+        strip=False,
+        help_text=password_validation.password_validators_help_text_html(),
+    )
+
+    new_password2 = forms.CharField(
+        label=_("New password confirmation"),
+        strip=False,
+        widget=widgets.PasswordInput(attrs={"autocomplete": "new-password"}),
+    )
+
+    old_password = forms.CharField(
+        label=_("Old Password"),
+        strip=False,
+        widget=widgets.PasswordInput(
+            attrs={"autocomplete": "current-password", "autofocus": True}
+        ),
+    )
+

@@ -29,6 +29,7 @@ class LogoutView(auth_views.LogoutView):
 
 
 class PasswordChangeView(auth_views.PasswordChangeView):
+    form_class = forms.PasswordChangeForm
     template_name = "accounts/password_change_form.html"
     success_url = "/accounts/password_change_done"
 
