@@ -1,5 +1,4 @@
 
-
 class WcPrimaryButton extends HTMLButtonElement {
     constructor(){
         super();

@@ -2,21 +2,23 @@
 <!Doctype html>
 <html lang="en">
 <head>
-  <title>{% block title %} App Starter {% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>{% block title %} App Starter {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'icons/favicon.svg' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
-  {% block scripts %}
-  {% endblock %}
+    {% block scripts %}
+    {% endblock %}
 
-  <!-- Components -->
+    <!-- Components -->
+    <script src="{% static 'general/button.js' %}"></script>
+    <!-- End components -->
+     
     <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.js" defer></script>
-  <!-- End components -->
-
-  <script type="module" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly-migrate.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
 </head>  
 <body>
-  {% block content %} {% endblock %}
+    {% block content %} {% endblock %}
 </body>
 </html>

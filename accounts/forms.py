@@ -9,5 +9,5 @@ class AuthenticationForm(auth_forms.AuthenticationForm):
     password = forms.CharField(
         label=_("Password"),
         strip=False,
-        widget=widgets.PasswordInput(attrs={"autocomplete": "current-password"})
+        widget=widgets.PasswordInput(attrs={"autocomplete": "current-password"}),
     )
