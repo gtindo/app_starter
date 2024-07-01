@@ -4,7 +4,9 @@
         {% if widget.value != None %}
             value="{{ widget.value|stringformat:'s' }}"
         {% endif %}
-        {% include "utils/forms/widgets/attrs.html" %}
+
+        {% for name, value in widget.attrs.items %}{% if value is not False %} {{ name }}{% if value is not True %}="{{ value|stringformat:'s' }}"{% endif %}{% endif %}{% endfor %}
+
         class="{% if variant == "error" %}
          bg-danger-50 border border-danger-500 text-danger-900 placeholder-danger-700
          text-sm rounded-lg focus:ring-danger-500 dark:bg-gray-700 focus:border-danger-500

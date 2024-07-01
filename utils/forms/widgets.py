@@ -1,7 +1,7 @@
 from django import forms
 
 
-class Input(forms.Widget):
+class Input(forms.widgets.Input):
     input_type = None
     template_name = "utils/forms/widgets/input.html"
 
@@ -13,7 +13,6 @@ class Input(forms.Widget):
         """Render the widget as an HTML string."""
         context = self.get_context(name, value, attrs)
         context["variant"] = self.variant
-        context["widget"]["type"] = self.input_type
         return self._render(self.template_name, context, renderer)
 
 

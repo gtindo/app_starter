@@ -14,11 +14,16 @@
     <script src="{% static 'general/button.js' %}"></script>
     <!-- End components -->
      
-    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly-migrate.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly-migrate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
 </head>  
 <body>
     {% block content %} {% endblock %}
+
+    <script>
+        up.fragment.config.runScripts = () => {};
+        up.history.config.updateMetaTags = () => {};
+    </script>
 </body>
 </html>
