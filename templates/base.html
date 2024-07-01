@@ -6,22 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/base.css' %}" />
 
-  <script type="importmap">
-    {
-      "imports": {
-        "@hotwired/turbo": "https://esm.sh/@hotwired/turbo@7.3.0"
-      }
-    }
-  </script>
-
   {% block scripts %}
   {% endblock %}
 
-  <script type="module" defer>
-      import * as Turbo from "@hotwired/turbo";
-  </script>
+  <!-- Components -->
+    <script src="https://cdn.jsdelivr.net/npm/unpoly@3.8.0/unpoly.min.js" defer></script>
+  <!-- End components -->
 
-  <script src="{% static 'general/button.js' %}"></script>
+  <script type="module" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
 </head>  
 <body>

@@ -15,8 +15,8 @@ It follows the HTML over the wire approach. Html is rendered on the server.
 Here are the list of frontend/backend tools used in the boilerplate:
 
 ### frontend:
-* Hotwired Turbo
 * Tailwind CSS
+* Unpoly js
 * Vanilla web components
 
 ### Backend Framework
